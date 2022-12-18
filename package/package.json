@@ -1,0 +1,21 @@
+{
+  "name": "lnv",
+  "version": "1.0.0-4",
+  "description": "lNV can read and write to ENV files with little-to-no performance cost!",
+  "main": "src/index.js",
+  "scripts": {
+    "private": "npm publish",
+    "public": "npm publish --access public",
+    "start": "node ./src/entry.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobuxTRex/lnv.git"
+  },
+  "author": "sulphurdev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RobuxTRex/lnv/issues"
+  },
+  "homepage": "https://lnv.robuxtrex.co.uk/link/npm"
+}
