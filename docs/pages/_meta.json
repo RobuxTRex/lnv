@@ -1,0 +1,12 @@
+{
+  "index": "Introduction",
+  "contact": {
+    "title": "NPM ↗",
+    "type": "page",
+    "href": "https://npmjs.com/package/lnv",
+    "newWindow": true
+  },
+  "link": {
+    "display": "hidden"
+  }
+}

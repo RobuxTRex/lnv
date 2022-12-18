@@ -1,0 +1,55 @@
+import { Callout, Tab, Tabs } from 'nextra-theme-docs'
+
+# Installation
+
+<Callout type="info">
+    Ensure you have Node.js installed with your terminal open to follow this guide!
+</Callout>
+
+Now that you have all the necessities installed onto your system, let's get installing!
+
+## Checking NPM
+
+Once you have opened your terminal and opened your project folder, run:
+
+```
+npm -v
+```
+
+
+If this command returned a version string - like 8.19.2 (the latest at the time of writing) - you're good-to-go and you can continue to the next sub-section of this page.
+Otherwise, run:
+
+```
+node -v
+```
+
+If it doesn't return a version string, try and re-install Node.js. If it does, then google some answers cuz i've never encountered that...
+ok next section
+
+## Running Commands
+
+To install lNV, run the following command:
+
+<Tabs items={['npm', 'yarn', 'pnpm']}>
+    <Tab>
+        ```
+        npm i lnv
+        npm
+        ```
+    </Tab>
+    <Tab>
+        ```
+        yarn add lnv
+        yarn
+        ```
+    </Tab>
+    <Tab>
+        ```
+        pnpm add lnv
+        pnpm install
+        ```
+    </Tab>
+</Tabs>
+
+... and that's it!

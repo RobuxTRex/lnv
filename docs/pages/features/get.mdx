@@ -1,0 +1,67 @@
+import { Callout } from 'nextra-theme-docs'
+
+# .get Function
+
+The .get function will grab the contents of the configured .env file (.env at root by default)
+It is really easy to get the values of any key(s) in an .env file with lNV compared to other libraries.
+
+## Code Examples
+
+First of all, you must import the lNV library by using:
+
+```
+const lnv = require('lnv') // We require the 'lNV' in our code
+```
+
+After importing the library, you must rather configure the default .env file <a href="../config/env">(click for guide)</a>, or make a .env file in the root of your project.
+lNV will assume your .env file is in the root of your project by default, unless configured otherwise. This will be our .env file for this guide:
+
+```
+USER=SulphurDev
+PASSWORD=123xyz
+EMAIL:robuxtrex@gmail.com
+```
+
+Once you have made your .env, add this to your code:
+
+```
+let user = lnv.get('USER') // We make a variable whose value is the value of the 'USER' entry in our .env file
+```
+
+Note that the variable name and the string parameter in the function does not have to be 'user'.
+They are examples purely examples - meaning you can modify them to whatever you want, as long as the parameter in the function matches a key in your .env file.
+
+Finally, we would like to `console.log` the variable:
+
+```
+console.log(user) // We output the value to the console.
+```
+
+The expected output should be:
+
+```
+SulphurDev
+```
+
+## Common mistakes
+
+### ReferenceError: lnv is not defined
+
+You forgot to import lNV into your code.
+Note that you must import lNV into every single file that you need to use it in, unless you use `module.exports` in a file with it imported in, and export the values to the file you need it in.
+
+Ensure that you have the following code at the beginning of the file that you're experiencing issues in:
+
+```
+const lnv = require('lnv')
+```
+
+### undefined/null is outputted to the Console instead of the value
+
+<Callout type="info">
+    The invalid-key/undefined-output error code may change in a future version of lNV
+</Callout>
+
+If your getting 'undefined' or 'null' outputted into the console, it is because there is no such match in the .env file to the key you provided in the parameters of the .get() function.
+Ensure the key you are requesting to view the value of is indeed a valid entry in the .env file.
+If it is, make sure that you have your .env file in the root of your project, or have the directory configured in the .lnvconfig file.
