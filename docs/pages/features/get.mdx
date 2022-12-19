@@ -9,7 +9,7 @@ It is really easy to get the values of any key(s) in an .env file with lNV compa
 
 First of all, you must import the lNV library by using:
 
-```
+```js
 const lnv = require('lnv') // We require the 'lNV' in our code
 ```
 
@@ -24,7 +24,7 @@ EMAIL:robuxtrex@gmail.com
 
 Once you have made your .env, add this to your code:
 
-```
+```js
 let user = lnv.get('USER') // We make a variable whose value is the value of the 'USER' entry in our .env file
 ```
 
@@ -33,7 +33,7 @@ They are examples purely examples - meaning you can modify them to whatever you 
 
 Finally, we would like to `console.log` the variable:
 
-```
+```js
 console.log(user) // We output the value to the console.
 ```
 
@@ -52,7 +52,7 @@ Note that you must import lNV into every single file that you need to use it in,
 
 Ensure that you have the following code at the beginning of the file that you're experiencing issues in:
 
-```
+```js
 const lnv = require('lnv')
 ```
 

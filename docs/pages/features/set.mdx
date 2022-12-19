@@ -1,0 +1,107 @@
+import { Callout } from 'nextra-theme-docs'
+
+# .set Function
+
+<Callout type="info">
+    When you modify the .env variables, they will not reset on ending the proccess in my own testing.
+</Callout>
+
+The .set function will modify the value of any key you give it via. parameters.
+
+## Code Examples
+
+First of all, you must import the lNV library by using:
+
+```js
+const lnv = require('lnv') // We require the 'lNV' package in our code
+```
+
+After importing the library, you must rather configure the default .env file <a href="../config/env">(click for guide)</a>, or make a .env file in the root of your project.
+lNV will assume your .env file is in the root of your project by default, unless configured otherwise. This will be our .env file for this guide:
+
+```
+USER=SulphurDev
+PASSWORD=123xyz
+EMAIL:robuxtrex@gmail.com
+```
+
+The first thing that we will do is read the 'USER' data so we can compare later:
+
+```js
+let user = lnv.get('USER') // We will fetch the value of USER before the modification of the value for comparison.
+```
+
+Now we have the old value of USER, let's `console.log` it:
+
+```js
+console.log(`Before: ${user}`) // Console.log the before value
+```
+
+So, far the expected output should be:
+
+```
+Before: SulphurDev
+```
+
+Now we need to actually edit the .env variable! It's really easy to do this:
+
+```js
+lnv.set('USER', '123abc')
+```
+
+This will modify USER's value in the .env file from 'SulphurDev' to '123abc'
+Though, our old 'user' variable will still contain the original 'SulphurDev', so all we need to do to also fetch the new value is:
+
+```js
+let newUser = lnv.get('USER') // Fetch the new value of USER
+```
+
+... and finally let's `console.log` the new value:
+
+```js
+console.log(`After: ${newUser}`)
+```
+
+The expected output should be:
+
+```
+Before: SulphurDev
+After: 123abc
+```
+
+### Code Summary
+
+The final code that has been shown in this page:
+
+```js
+const lnv = require('lnv') // We require the 'lNV' package in our code
+let user = lnv.get('USER') // We will fetch the value of USER before the modification of the value for comparison.
+console.log(`Before: ${user}`) // Console.log the before value
+lnv.set('USER', '123abc') // Use the .set() function, and set the key `USER`s' value to '123abc'
+let newUser = lnv.get('USER') // Fetch the new value of USER
+console.log(`After: ${newUser}`) // Console.log the after value
+```
+`Output:`
+```
+Before: SulphurDev
+After: 123abc
+```
+
+## Common mistakes
+
+### ReferenceError: lnv is not defined
+
+You forgot to import lNV into your code.
+Note that you must import lNV into every single file that you need to use it in, unless you use `module.exports` in a file with it imported in, and export the values to the file you need it in.
+
+Ensure that you have the following code at the beginning of the file that you're experiencing issues in:
+
+```js
+const lnv = require('lnv')
+```
+
+### The .env file is not being modified!
+
+If the .env file is not being modified when requested, it is probably because there is no such match in the .env file to the key you provided in the parameters of the .set() function.
+Ensure the key you are requesting to view and/or modify the value of indeed exists in the requested .env file.
+If it is, make sure that you have your .env file in the root of your project, or have the directory configured in the .lnvconfig file.

@@ -1,4 +1,5 @@
 {
-    "get": ".get() Function"
+    "get": ".get() Function",
+    "set": ".set() Function"
 }
   
